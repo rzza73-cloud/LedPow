@@ -1,56 +1,48 @@
 # LedPow
 
-A small WPF .NET project for experimenting with LED-style text using a canvas of simulated LEDs.
+A small WPF .NET project for building a simple LED-style display.
 
-The idea is to render uppercase ASCII letters as a pattern of lit LED pixels, similar to a digital display. The project is still in an early stage, but the foundation is already in place:
+The goal is to create a compact display made of LED strips that can show changing values over time. The project is still in an early stage and is intended as a prototype for a CRT-like or scanline-style visualizer.
 
-- a `Led` class for individual LED cells
-- a `LedStrip` class for grouping LEDs
-- a `MainWindow` that creates a grid of strips on a canvas
+## What this project is about
+
+The current idea is to build a display with multiple LED rows, where time moves horizontally or vertically and each row represents a signal or channel.
+
+This is inspired by older CRT displays and signal traces, where light moves across a line and the pattern shows activity over time.
 
 ## Current status
 
-This project is intentionally a prototype. It does not yet fully render letters, but the structure is ready for expanding toward:
+This project is only a starting point. The basic structure is in place:
 
-- ASCII uppercase font patterns
-- LED matrix rendering
-- letter animation or scrolling text
-- custom brightness / color effects
+- a single LED element
+- a strip of LEDs
+- a canvas-based window that creates LED rows
 
 ## Project structure
 
-- `LedPow/MainWindow.xaml` — window layout
-- `LedPow/MainWindow.xaml.cs` — app startup and LED strip creation
-- `LedPow/Led.cs` — single LED behavior and visual state
-- `LedPow/LedStrip.cs` — collection of LEDs for one strip
-- `LedPow/LedPow.csproj` — project configuration
+- `LedPow/MainWindow.xaml` - main window layout
+- `LedPow/MainWindow.xaml.cs` - creates the LED structures
+- `LedPow/Led.cs` - individual LED behavior
+- `LedPow/LedStrip.cs` - group of LEDs in one strip
+- `LedPow/LedPow.csproj` - project configuration
 
-## Run the app
+## Planned direction
+
+The next steps are to evolve this from a static LED grid into a time-based display:
+
+- create multiple LED rows
+- animate data over time
+- shift values across the display
+- visualize signal-like patterns in a CRT-inspired style
+- make it look more like a trace display than a static panel
+
+## Run the project
 
 1. Open `LedPow.slnx` in Visual Studio.
-2. Restore NuGet dependencies if prompted.
+2. Restore dependencies if needed.
 3. Build the solution.
 4. Run the app.
 
-## Planned next steps
+## Notes
 
-- define a font map for uppercase letters
-- convert characters into LED coordinates
-- draw letters on the canvas using the existing LED grid
-- add adjustable spacing, colors, and animation timing
-
-## Example concept
-
-A future version could display text like this:
-
-```
-  ███  ███  ███  ███  ███  ███  ███  ███
-  █ █  █ █  █     █  █ █  █ █  █  █ █
-  █ █  █ █  █     █  █ █  █ █  █  █ █
-  █ █  ███  ███   █   ███  ███  ███
-  █ █  █ █     █  █   █ █  █ █  █ █
-  █ █  █ █     █  █   █ █  █ █  █ █
-  ███  ███  ███  ███   ███  ███  ███
-```
-
-This README will continue to evolve as the LED letter rendering logic is implemented.
+This is a prototype and the design may change as the display behavior is refined. The goal is to keep the project simple, visual, and easy to extend.
